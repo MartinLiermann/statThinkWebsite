@@ -13,7 +13,7 @@ navbar:
         - text: "Example Syllabus"
           href: syllabus_SYTYCDS2020.html
         - text: "Hands on Exercises"
-          href: Exercises.html
+          href: exercises.html
         - text: "Home work"
           href: homework.html
           
