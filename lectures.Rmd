@@ -1,0 +1,9 @@
+---
+title: ''
+output: html_document
+---
+
+# Lectures
+
+[Course Expectations](lecture_Course_Expectations.pdf)
+
