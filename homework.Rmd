@@ -1,0 +1,10 @@
+---
+title: ''
+output: html_document
+---
+
+# Home work assignments
+
+[Permutation test home work](HW_chinookEggIncubation.html)
+
+[Bootstrap home home work](HW_bootstrap.html)

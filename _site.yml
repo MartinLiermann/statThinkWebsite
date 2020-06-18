@@ -1,17 +1,22 @@
-name: "my-website"
+name: "Statistical Thinking"
 output_dir: "."
 navbar:
-  title: "My Website"
+  title: "Statistical Thinking"
   left:
     - text: "Home"
       icon: fa-home
       href: index.html
-    - text: "More"
+    - text: "About" 
+      href: about.html
+    - text: "Resources"
       menu:
-        - text: "About"
-          href: about.html
-        - text: "Contact"
-          href: contact.html
+        - text: "Example Syllabus"
+          href: syllabus_SYTYCDS2020.html
+        - text: "Hands on Exercises"
+          href: Exercises.html
+        - text: "Home work"
+          href: homework.html
+          
 output:
   html_document:
     theme: cosmo

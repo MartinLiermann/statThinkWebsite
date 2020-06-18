@@ -1,5 +1,32 @@
 ---
-title: "About This Website"
 ---
 
-More about this website.
+<br>
+
+## Motivation
+
+Statistics and statistics education are entering a new era. There is broad agreement among scientists, including statisticians, that we must move statistical analysis and evidence-based decision making beyond “bright line rules” and toward “a post p<0.05 era” . There are emerging concerns  about scientists’ inability to replicate published results and the cost to society of an ineffective scientific process. One area of clear consensus is that statistics needs to be taught differently, with less reliance on rote calculations and increased emphasis on probabilistic thinking. Our course, designed to meet that need, teaches statistical philosophy and foundations of inference; provides tools for avoiding common errors; identifies opportunities to do things right via simulation; and offers skills in communicating statistical conclusions to other scientists, journalists, and the public.
+After the course, students will be able to (1) identify and prevent common errors in thinking that lead to statistical problems, (2) use simulations to conduct and evaluate statistical analyses, and (3) communicate probabilistic information effectively.
+Key Topics
+
+-  Errors in thinking: How the wiring of the human brain leads to incorrect conclusions from data.
+-  Clear questions: Quantifying the metric of interest in scientific questions.
+-  Simulations: Using simulations to understand the behavior and power of statistical tests.
+-  The p-value: Understanding what it is, what it tells us, and what it does not tell us.
+-  The science process: Pitfalls and opportunities of the project life-cycle and peer-review process.
+-  Study Design: Principles of good study design and how poor design can lead to incorrect conclusions.
+-  Sample size: Issues with small samples and with big data. How these both lead to incorrect conclusions.
+-  Application of probabilistic thinking: Understanding climate science.
+-  Communication: Principles of scientific communication and how they apply to statistics.
+
+## About us
+
+**E. Ashley Steel**, PNW Research Station, US Forest Service – Station Statistician and Quantitative Ecologist. She studies the ecological role of variability in natural systems and consults to ecologists and students on the application of statistics in natural resources. Ashley is the author of “The Truth About Science: A Curriculum Developing Scientists” and has taught dozens of teacher education workshops in the USA as well as in Thailand. She taught non-parametric statistics and science in decision-making at the University of Washington and has designed and taught “What is a model?” for natural resource extension agents to understand climate science, a three-part hands-on training in permutation tests, and a recurring series on statistics for AP Biology teachers. 
+
+
+**Peter Guttorp**, University of Washington (Professor emeritus) - Statistics. Works in stochastic modeling of scientific data, particularly from geosciences and hematology. His research emphasizes the influence of science on policy decisions and the importance of quantifying uncertainty. For example, he has modeled sea level rise and its application to adaptation decision-making. Peter was a member of the Intergovernmental Panel on Climate Change (IPCC) and has taught courses in statistical climatology in Brazil, Venezuela, Sweden and USA. 
+
+**June Morita** Wonderful things about June here.
+
+
+**Martin Liermann**, Northwest Fisheries Science Center, NOAA – Quantitative Fisheries. Works with scientists and fisheries managers to understand and communicate uncertainty. His recent work has focused on population modeling, sample design, and fish-habitat relationships. Martin has given many introductory talks and lectures on statistical topics including population modeling, the R language, and study design.

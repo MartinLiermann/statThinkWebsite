@@ -1,0 +1,10 @@
+---
+title: ''
+output: html_document
+---
+
+# In class exercises
+
+[Marbles exercise](exerciseMarbles.html)
+
+[Kidney Cancer exercise](exerciseKidneyCancer.html)

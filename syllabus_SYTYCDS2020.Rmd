@@ -1,0 +1,93 @@
+---
+title: "Example Syllabus for 10 week course"
+output: html_document
+---
+
+
+This is a syllabus for the 10 week course we taught at the University of Washington. Each week included two 80 minute periods. We rarely lectured for more than 15 at a time and incorporated many group activities. 
+
+Students were required to have an introductory level statistics course, but we motivated and taught testing and estimation in a way that did not require previous experience with these concepts.
+
+The course drew students from a range of disciplines including statistics, economics, fisheries, communications, social work,... While the bulk of the students were upper level undergraduates, we always had a few graduate students. This breadth of experience and expertise contributed to the course, and led to many intesting group discussions. 
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyr)
+library(dplyr)
+library(kableExtra)
+library(pander)
+library(stringr)
+
+s2020 <- read.csv("tables/SYTYCDS_syllabus_2020.csv",stringsAsFactors=FALSE)
+
+s2020[,c("Week","Theme","Description")] %>% 
+  mutate_all(function(x) stringr::str_replace_all(x, "\\n", "<br>"))%>%
+  knitr::kable(escape=FALSE) %>%
+  kable_styling(c("striped","bordered"), full_width = F, position="left")
+```
+
+
+```{r, echo=FALSE, results='asis'}
+nList <- c("Tuesday","Thursday","Readings","Homework","Group")
+
+res <- lapply(s2020$Week, function(x) {
+  tmpText <- stringr::str_replace_all(t(s2020[x,nList]), "\\n", "; ")
+  pDat <- data.frame(nList,tmpText)
+  knitr::knit_child(text = c(
+    '```{r echo=FALSE}',
+    'knitr::kable(pDat,escape=FALSE,row.names=FALSE,col.names=c(paste("Week",x),"Details")) %>%  kable_styling(c("striped","bordered"), full_width = F, position="left")',
+    '```',
+    ''
+  ), envir = environment(), quiet = TRUE)
+})
+cat(unlist(res), sep = '\n')
+```
+
+```{r eval=FALSE, echo=FALSE}
+library(tidyr)
+library(dplyr)
+library(kableExtra)
+addText <- function(x){
+  tmp <- stringr::str_replace_all(x, "\\n", "\n|    ")
+  tmp2 <- stringr::str_replace_all(tmp, ";", "\n|    ")
+  ifelse(tmp2=="","",paste("|    ",tmp2,sep=""))
+}
+
+res <- lapply(s2020$Week, function(x) {
+  knitr::knit_child(text = c(
+    '**Week `r x`**\n',
+    '|  **Day 1**',
+    addText(s2020$Tuesday[x]),
+    ''
+  ), envir = environment(), quiet = TRUE)
+})
+cat(unlist(res), sep = '\n')
+
+
+res <- lapply(s2020$Week, function(x) {
+  pDat <- data.frame(nList,t(s2020[x,nList]))
+  knitr::knit_child(text = c(
+    '**Week `r x`**\n',
+    '```{r echo=FALSE}',
+    'knitr::kable(pDat,escape=FALSE,row.names=FALSE,col.names=c(paste("Week",x),"Details")) %>%  kable_styling(c("striped","bordered"), full_width = F)',
+    '```',
+    ''
+  ), envir = environment(), quiet = TRUE)
+})
+cat(unlist(res), sep = '\n')
+
+```
+
+
+```{r eval=FALSE, echo=FALSE}
+template <- "### Week %i
+| Day 1 
+|  
+Additional section text is: %s.
+
+" # dont't forget the newline
+
+for (i in seq(nrow(input))) {
+  current <- input[i, ]
+  cat(sprintf(template, current$name, current$data, current$text))
+}
+```

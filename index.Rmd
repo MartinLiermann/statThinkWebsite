@@ -1,5 +1,5 @@
 ---
-title: "My Website"
+title: "Statistical Thinking"
 ---
 
-Hello, Website!
+This web site includes resources developed while teaching a [course](exampleSyllabus.html) on Statistical Thinking at the University of Washington.

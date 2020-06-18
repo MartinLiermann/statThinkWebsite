@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="So You Think You Can Do Statistics" />
+
+
+<title>Bootstrap (homework)</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Statistical Thinking</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="syllabus_SYTYCDS2020.html">Example Syllabus</a>
+    </li>
+    <li>
+      <a href="Exercises.html">Hands on Exercises</a>
+    </li>
+    <li>
+      <a href="homework.html">Home work</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Bootstrap (homework)</h1>
+<h4 class="author">So You Think You Can Do Statistics</h4>
+
+</div>
+
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># THIS DOCUMENT INCLUDES THE SOLUTION</span>
+<span class="co"># regenerate with soln: FALSE to create the </span>
+<span class="co"># HW assignment for the students</span>
+
+<span class="co"># The point of this HW is to give the students practice</span>
+<span class="co"># creating bootstrap confidence intervals and to </span>
+<span class="co"># provide an example where using the mean (and tdist based CI)</span>
+<span class="co"># probably doesn&#39;t make much sense.</span>
+
+
+<span class="co"># Here we simulate some data for use in the HW</span>
+<span class="co"># you will need to make this accessible to the students for</span>
+<span class="co"># this hw</span>
+<span class="kw">set.seed</span>(<span class="dv">87</span>)
+incomes &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>,<span class="fl">10.75</span>,<span class="fl">1.02</span>))
+incomesB &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>,<span class="fl">10.75</span>,<span class="fl">0.85</span>))
+incomesSmall &lt;-<span class="st"> </span><span class="kw">sample</span>(incomes,<span class="dv">100</span>)
+<span class="co"># create an function gini to calculate the gini index</span>
+gini &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  n &lt;-<span class="st"> </span><span class="kw">length</span>(x)
+  mu &lt;-<span class="st"> </span><span class="kw">mean</span>(x)
+  <span class="dv">2</span><span class="op">/</span>(n<span class="op">*</span>(n<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>mu)<span class="op">*</span><span class="kw">sum</span>((<span class="dv">1</span><span class="op">:</span>n)<span class="op">*</span><span class="kw">sort</span>(x))<span class="op">-</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span>(n<span class="op">-</span><span class="dv">1</span>)
+}
+<span class="co"># save everything in an R object called incomes.Rdat</span>
+<span class="kw">save</span>(incomes,incomesB,incomesSmall,gini,<span class="dt">file=</span><span class="st">&quot;incomes.Rdat&quot;</span>)
+<span class="co"># students can access this copying the file to somewhere</span>
+<span class="co"># they have access to and then typing load(file.choose())</span>
+<span class="co"># Or if they put it in their working directory they can</span>
+<span class="co"># use load(&quot;incomes.Rdat&quot;)</span>
+
+<span class="co">#remove the objects from the session.</span>
+
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">c</span>(<span class="st">&quot;incomes&quot;</span>,<span class="st">&quot;incomesB&quot;</span>,<span class="st">&quot;incomesSmall&quot;</span>,<span class="st">&quot;gini&quot;</span>))</code></pre></div>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>In this homework you will be analyze income data using the bootstrap. In many cases we describe populations using the mean. For example, the mean monthly GB of data used in cell phone plans, or the mean length of hospital stays. As Peter showed in class, the central limit theorem allows us to easily construct approximate confidence intervals for the mean, <span class="math inline">\(\bar{x} \pm 1.96se\)</span>. But what do you do when you want to calculate a confidence interval for a metric that is not the mean? Below you will use the bootstrap to calculate confidence intervals for metrics commonly used when describing income distributions.</p>
+<ol style="list-style-type: decimal">
+<li><p>Download incomes.Rdat from the files section of the class site and move it into you R working directory. You can figure out what your R working directory is by typing getwd() and hitting return. Or you can change your working directory using the menu option <code>session/change working directory</code>in Rstudio. Once you have the file, load the income data into the R session using the <code>load</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;incomes.Rdat&quot;</span>)</code></pre></div>
+<p>You will now have the variables, <code>incomes</code>, <code>incomesB</code>, and <code>incomesSmall</code>, as well as a function called <code>gini</code> in your R session. The variables <code>incomes</code>, <code>incomesB</code>, and <code>incomesSmall</code> are random samples from all incomes in a country. There are 1000 values in <code>incomes</code> and <code>incomesB</code> while <code>incomesSmall</code> has 100 values. Plot a histogram of the <code>incomes</code> data (not <code>incomesB</code> or <code>incomesSmall</code>) and calculate some basic statistics (like the mean). What do you notice about the data?</p></li>
+</ol>
+<blockquote>
+<p>Solution</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(incomes)</code></pre></div>
+<p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(incomes)</code></pre></div>
+<pre><code>## [1] 74106.03</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(incomes)</code></pre></div>
+<pre><code>## [1] 45403.63</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(incomes)</code></pre></div>
+<pre><code>## [1] 94039.74</code></pre>
+<p>The income distribution is not symmetric. It is skewed, with a long tail to the right. Also, notice that the median is much smaller than the mean. For a symetric distribution we would expect them to be similar. The median is the value for which 50% of the observations are above and 50% below.</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Income inequality is a topic that has recently received a lot of attention. One way to summarize the degree of income inequality is to calculate the proportion of total income that goes to the top 5% of earners (let's refer to this as the top5 metric). There are different ways that you could calculate this metric in R. One way is to a) figure out what income level separates the lower 95% from the top 5% of earners, b) sum the incomes above this level and then c) divide this sum by the sum of all incomes. For step a we can use the <code>quantile</code> function in R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(incomes,<span class="dt">prob=</span><span class="fl">0.95</span>)</code></pre></div>
+<p>To sum the incomes above a certain level (here we use x as a place holder) we can use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(incomes[incomes<span class="op">&gt;</span>x])</code></pre></div>
+<p>Calculate the proportion of the total income that goes to the top 5% of earners for sample <code>incomes</code>. What would you expect if everyone earned about the same income?</p></li>
+</ol>
+<blockquote>
+<p>Solution</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q95 &lt;-<span class="st"> </span><span class="kw">quantile</span>(incomes,<span class="dt">prob=</span><span class="fl">0.95</span>)
+<span class="kw">sum</span>(incomes[incomes<span class="op">&gt;</span>Q95])<span class="op">/</span><span class="kw">sum</span>(incomes)</code></pre></div>
+<pre><code>## [1] 0.2521954</code></pre>
+<p>So 25% of the total income goes to the top 5% of earners. If all incomes were about the same I would expect to get 5% instead.</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Since <code>incomes</code> is a sample from a population, we would like to describe the uncertainty in this estimate. Use the bootstrap to calculate a 95% confidence interval for the top5 metric (calculated in question 2, i.e. % of total income going to the top 5% of earners) and plot the histogram of the bootstrap distribution (again for the <code>incomes</code> data). Use 10,000 resamples in your bootstrap code. Notice: the <code>size</code> parameter in the <code>sample</code> function should be <code>1000</code> (the size of the sample, incomes). If you don't include the <code>size</code> parameter it defaults to the size of vector you are sampling from (so in this case, 1000).</li>
+</ol>
+<blockquote>
+<p>Solution</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bsVals &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="dv">10000</span>)
+incomeDat &lt;-<span class="st"> </span>incomes
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){
+ incomeSamp &lt;-<span class="st"> </span><span class="kw">sample</span>(incomeDat,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+ top5break &lt;-<span class="st"> </span><span class="kw">quantile</span>(incomeSamp,<span class="dt">prob=</span><span class="fl">0.95</span>)
+ bsVals[i] &lt;-<span class="st"> </span><span class="kw">sum</span>(incomeSamp[incomeSamp<span class="op">&gt;</span>top5break])<span class="op">/</span><span class="kw">sum</span>(incomeSamp)
+}
+bsCI &lt;-<span class="st"> </span><span class="kw">quantile</span>(bsVals,<span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))
+<span class="kw">hist</span>(bsVals,<span class="dt">xlab=</span><span class="st">&quot;Proportion of total income that goes to the richest 5%&quot;</span>,<span class="dt">main=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)
+top5break &lt;-<span class="st"> </span><span class="kw">quantile</span>(incomeDat,<span class="dt">prob=</span><span class="fl">0.95</span>)
+pp &lt;-<span class="st"> </span><span class="kw">sum</span>(incomeDat[incomeDat<span class="op">&gt;</span>top5break])<span class="op">/</span><span class="kw">sum</span>(incomeDat)
+<span class="kw">abline</span>(<span class="dt">v=</span>pp,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">abline</span>(<span class="dt">v=</span>bsCI[<span class="dv">1</span>],<span class="dt">lty=</span><span class="dv">3</span>)
+<span class="kw">abline</span>(<span class="dt">v=</span>bsCI[<span class="dv">2</span>],<span class="dt">lty=</span><span class="dv">3</span>)</code></pre></div>
+<p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>The 95% confidence interval is (0.219-0.283) .</p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li><p>the incomesB variable contains a sample of incomes from another country. Calculate the 95% confidence interval for this population (using the same top5 metric as in problems 2 and 3). Do the confidence intervals overlap? Even if the confidence intervals do overlap, there could still be a statistically significant difference between the two metrics. Calculate the confidence interval for the difference in the metrics for the two populations. This can be accomplished using code very similar to what you have already used. Look at the solution to question 2 in the lab for an example of creating a bootstrap confidence interval for a difference between means (although here we are not using means). It should look something like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){
+  <span class="co"># draw a sample from each population and calculate the two metrics</span>
+  bsVals[i] &lt;-<span class="st"> </span>valueForCountryA <span class="op">-</span><span class="st"> </span>valueForCountryB
+}</code></pre></div>
+<p>Is there a statistically significant difference?</p></li>
+</ol>
+<blockquote>
+<p>Solution</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bsVals &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="dv">10000</span>)
+incomeDat &lt;-<span class="st"> </span>incomesB
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){
+ incomeSamp &lt;-<span class="st"> </span><span class="kw">sample</span>(incomeDat,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+ top5break &lt;-<span class="st"> </span><span class="kw">quantile</span>(incomeSamp,<span class="dt">prob=</span><span class="fl">0.95</span>)
+ bsVals[i] &lt;-<span class="st"> </span><span class="kw">sum</span>(incomeSamp[incomeSamp<span class="op">&gt;</span>top5break])<span class="op">/</span><span class="kw">sum</span>(incomeSamp)
+}
+bsCIB &lt;-<span class="st"> </span><span class="kw">quantile</span>(bsVals,<span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))
+<span class="co"># plot the results</span>
+<span class="kw">hist</span>(bsVals,<span class="dt">xlab=</span><span class="st">&quot;Proportion of total income that goes to the richest 5%&quot;</span>,<span class="dt">main=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)
+top5break &lt;-<span class="st"> </span><span class="kw">quantile</span>(incomeDat,<span class="dt">prob=</span><span class="fl">0.95</span>)
+pp &lt;-<span class="st"> </span><span class="kw">sum</span>(incomeDat[incomeDat<span class="op">&gt;</span>top5break])<span class="op">/</span><span class="kw">sum</span>(incomeDat)
+<span class="kw">abline</span>(<span class="dt">v=</span>pp,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">abline</span>(<span class="dt">v=</span>bsCIB[<span class="dv">1</span>],<span class="dt">lty=</span><span class="dv">3</span>)
+<span class="kw">abline</span>(<span class="dt">v=</span>bsCIB[<span class="dv">2</span>],<span class="dt">lty=</span><span class="dv">3</span>)</code></pre></div>
+<p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>The 95% confidence interval is (0.184-0.227). So, there is a slight overlap with the confidence interval for population A.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bsVals &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="dv">10000</span>)
+incomeDat &lt;-<span class="st"> </span>incomesB
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){
+ incomeSampA &lt;-<span class="st"> </span><span class="kw">sample</span>(incomes,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+ top5breakA &lt;-<span class="st"> </span><span class="kw">quantile</span>(incomeSampA,<span class="dt">prob=</span><span class="fl">0.95</span>)
+ valA &lt;-<span class="st"> </span><span class="kw">sum</span>(incomeSampA[incomeSampA<span class="op">&gt;</span>top5breakA])<span class="op">/</span><span class="kw">sum</span>(incomeSampA)
+ incomeSampB &lt;-<span class="st"> </span><span class="kw">sample</span>(incomesB,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+ top5breakB &lt;-<span class="st"> </span><span class="kw">quantile</span>(incomeSampB,<span class="dt">prob=</span><span class="fl">0.95</span>)
+ valB &lt;-<span class="st"> </span><span class="kw">sum</span>(incomeSampB[incomeSampB<span class="op">&gt;</span>top5breakB])<span class="op">/</span><span class="kw">sum</span>(incomeSampB)
+ bsVals[i] &lt;-<span class="st"> </span>valA <span class="op">-</span><span class="st"> </span>valB
+}
+bsCI &lt;-<span class="st"> </span><span class="kw">quantile</span>(bsVals,<span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))
+<span class="kw">hist</span>(bsVals,<span class="dt">xlab=</span><span class="st">&quot;Proportion of total income that goes to the richest 5%&quot;</span>,<span class="dt">main=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)
+top5breakA &lt;-<span class="st"> </span><span class="kw">quantile</span>(incomes,<span class="dt">prob=</span><span class="fl">0.95</span>)
+ppA &lt;-<span class="st"> </span><span class="kw">sum</span>(incomes[incomes<span class="op">&gt;</span>top5breakA])<span class="op">/</span><span class="kw">sum</span>(incomes)
+top5breakB &lt;-<span class="st"> </span><span class="kw">quantile</span>(incomesB,<span class="dt">prob=</span><span class="fl">0.95</span>)
+ppB &lt;-<span class="st"> </span><span class="kw">sum</span>(incomesB[incomesB<span class="op">&gt;</span>top5breakB])<span class="op">/</span><span class="kw">sum</span>(incomesB)
+<span class="kw">abline</span>(<span class="dt">v=</span>ppA<span class="op">-</span>ppB,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">abline</span>(<span class="dt">v=</span>bsCI[<span class="dv">1</span>],<span class="dt">lty=</span><span class="dv">3</span>)
+<span class="kw">abline</span>(<span class="dt">v=</span>bsCI[<span class="dv">2</span>],<span class="dt">lty=</span><span class="dv">3</span>)</code></pre></div>
+<p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>The confidence interval for the difference (0.008-0.084) does not include 0 so there is a statistically significant difference (barely!).</p>
+</blockquote>
+<ol start="5" style="list-style-type: decimal">
+<li>The <a href="https://en.wikipedia.org/wiki/Gini_coefficient">Gini coefficient</a> is another way of measuring income inequality. Calculate a 90% CI for the difference in the gini coefficient for the two populations. Notice that the statement <code>gini(incomes)</code> will calculate the gini index for the <code>incomes</code> data.</li>
+</ol>
+<blockquote>
+<p>Solution</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bsVals &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="dv">10000</span>)
+incomeDat &lt;-<span class="st"> </span>incomesB
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){
+ incomeSampA &lt;-<span class="st"> </span><span class="kw">sample</span>(incomes,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+ incomeSampB &lt;-<span class="st"> </span><span class="kw">sample</span>(incomesB,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+ bsVals[i] &lt;-<span class="st"> </span><span class="kw">gini</span>(incomeSampA)<span class="op">-</span><span class="kw">gini</span>(incomeSampB)
+}
+bsCI &lt;-<span class="st"> </span><span class="kw">quantile</span>(bsVals,<span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))
+<span class="kw">hist</span>(bsVals,<span class="dt">xlab=</span><span class="st">&quot;Gini Coefficient&quot;</span>,<span class="dt">main=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)
+pp &lt;-<span class="st"> </span><span class="kw">gini</span>(incomes)<span class="op">-</span><span class="kw">gini</span>(incomesB)
+<span class="kw">abline</span>(<span class="dt">v=</span>pp,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">abline</span>(<span class="dt">v=</span>bsCI[<span class="dv">1</span>],<span class="dt">lty=</span><span class="dv">3</span>)
+<span class="kw">abline</span>(<span class="dt">v=</span>bsCI[<span class="dv">2</span>],<span class="dt">lty=</span><span class="dv">3</span>)</code></pre></div>
+<p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</blockquote>
+<div id="extra-for-experts." class="section level4">
+<h4>Extra for experts.</h4>
+<ol start="6" style="list-style-type: decimal">
+<li><p>The <a href="https://en.wikipedia.org/wiki/Lorenz_curve">Lorenz curve</a> shows the metric calculated in problem 2, but for all percentages (i.e. not just 5%). We can plot the curve for the much smaller sample of incomes,<code>incomesSmall</code>, data using the code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xx &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span><span class="kw">cumsum</span>(<span class="kw">sort</span>(incomesSmall))<span class="op">/</span><span class="kw">sum</span>(incomesSmall)
+<span class="kw">plot</span>(<span class="dv">100</span><span class="op">*</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(xx))<span class="op">/</span><span class="kw">length</span>(xx),xx,<span class="dt">xlab=</span><span class="st">&quot;Cummulative percent of earners from lowest to highest incomes&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Cummulative percent of income earned&quot;</span>,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">xaxs=</span><span class="st">&quot;i&quot;</span>,<span class="dt">yaxs=</span><span class="st">&quot;i&quot;</span>)
+<span class="kw">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">lty=</span><span class="dv">3</span>)</code></pre></div>
+<p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-12-1.png" width="576" /></p>
+<p>Generate 20 or so bootstrap samples from <code>incomesSmall</code> and draw their Lorenz curves over the top of the plot above. For which x values does the uncertainty in the % income earned tend to be the highest (hint: draw a few vertical lines).</p></li>
+</ol>
+<blockquote>
+<p>Solution</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xx &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span><span class="kw">cumsum</span>(<span class="kw">sort</span>(incomesSmall))<span class="op">/</span><span class="kw">sum</span>(incomesSmall)
+<span class="kw">plot</span>(<span class="dv">100</span><span class="op">*</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(xx))<span class="op">/</span><span class="kw">length</span>(xx),xx,<span class="dt">xlab=</span><span class="st">&quot;Cummulative percent of earners from lowest to highest incomes&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Cummulative percent of income earned&quot;</span>,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">xaxs=</span><span class="st">&quot;i&quot;</span>,<span class="dt">yaxs=</span><span class="st">&quot;i&quot;</span>)
+<span class="kw">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">lty=</span><span class="dv">3</span>)
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">25</span>){
+ samp &lt;-<span class="st"> </span><span class="kw">sample</span>(incomesSmall,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+ xx &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span><span class="kw">cumsum</span>(<span class="kw">sort</span>(samp))<span class="op">/</span><span class="kw">sum</span>(samp)
+ <span class="kw">lines</span>(<span class="dv">100</span><span class="op">*</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(xx))<span class="op">/</span><span class="kw">length</span>(xx),xx,<span class="dt">col=</span><span class="kw">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.2</span>))
+}</code></pre></div>
+<p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-13-1.png" width="576" /></p>
+<p>There's more uncertainty for moderate and higher values of Cummulative percent of earners.</p>
+</blockquote>
+</div>
+</div>
+
+<p></p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

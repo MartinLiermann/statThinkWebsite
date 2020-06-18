@@ -1,0 +1,30 @@
+
+blockquote {
+  font-style: italic
+}
+
+/* Need to adjust the navbar behaviour so the navbar doesn't wrap */
+.navbar-nav { 
+  position: fixed;
+  left: 150px;
+  width: 700px;
+}
+
+.navbar-header {
+  position: fixed;
+  left: 30px;
+  width: 97%;
+}
+
+h1 {
+  font-color: green
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 2;
+}
+
+.section {
+   padding-bottom: 2em;
+}

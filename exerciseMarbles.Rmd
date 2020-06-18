@@ -1,0 +1,46 @@
+---
+title: "Marbles Exercise"
+output: html_document
+---
+
+**Overview**
+
+In this exercise, students use analogue simulations (hands-on simulations) to gain intuition about how the probability of extreme events is influenced by sample size. 
+
+**Big Ideas**
+
+-  Students observe strong patterns that are caused by random chance.
+-  Students are introduced to null models as a tool for identifying patterns caused by random chance.
+-  Students gain deep intuition that extreme events are more likely with smaller sample sizes.
+-  Students observe a range of examples in which costly errors have been made by not recognizing that extreme events are more likely with smaller sample sizes.
+
+**Setup**
+
+Each group will need a bag (or some other container) or 80 marbles or other obects. The objects have to be indentical except that half (40) are one color and the other half (40) another color.
+
+**Activity**
+
+1)  Initiate the sampling exercise by passing out the bags of objects. Give the students the following instructions. Note that they may need to be modified for the color and objects in your bags.  Each bag has 40 yellow and 40 blue beads.  Make a quick data sheet to record data for each of the two simulations.  Data are (1) total number of trials and (2) total number of successes = all the same color for one trial. (Remind students to record the number of trials not just the number of successes!)
+2)  Reach in without looking and pull out 7 beads.
+
+-  Record whether or not they are all the same color.
+-  RETURN the beads to the bag
+-  Repeat as many times as possible in 3 minutes. Reach in without looking and pull out 4 beads.
+-  Record whether or not they are all the same color.
+-  RETURN the beads to the bag
+-  Repeat as many times as possible in 3 minutes.
+
+3)  When students are finished, you can use the included spreadsheet to tally the results of trials and successes (extreme events, all beads of the same color) across groups quickly.
+4)  Observe the estimated probability of an extreme event for a sample size of 4 versus 7.
+5)  Initiate a class discussion.
+
+**Discussion Questions**
+
+-  Did you expect such a big difference between a sample size of 4 and 7?
+-  How else could you have calculated or estimated these probabilities?
+-  What do the bead simulations and the kidney cancer example have in common?
+-  What other types of data are likely to have similar problems (number of trees on plots of different sizes, climate data measured across different numbers of years, number of animals or fish in habitats of different sizes, anything measured across households and compared across populations with different household sizes).
+-  In what other ways do humans make up stories to explain patterns? Examples?
+-  What is a null model and how is it useful?
+-  How else can you estimate a null model?
+-  How would you explain this phenomena to a person who is neither a scientist nor a statistician?
