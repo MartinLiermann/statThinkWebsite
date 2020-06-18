@@ -16,80 +16,32 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
 
 
 <style type="text/css">
@@ -154,33 +106,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 61px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -349,6 +301,9 @@ $(document).ready(function () {
     <li>
       <a href="homework.html">Home work</a>
     </li>
+    <li>
+      <a href="lectures.html">Lectures</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -369,14 +324,14 @@ $(document).ready(function () {
 </div>
 
 
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># THIS DOCUMENT INCLUDES THE SOLUTION</span>
-<span class="co"># regenerate with soln: FALSE to create the </span>
-<span class="co"># HW assignment for the students</span>
+<pre class="r"><code># THIS DOCUMENT INCLUDES THE SOLUTION
+# regenerate with soln: FALSE to create the 
+# HW assignment for the students
 
-<span class="co"># The point of this homework is to get some practice using the permutation</span>
-<span class="co"># test on an actual data set. We have the apply the test to the mean and median</span>
-<span class="co"># also, notice that the data set is very small making it harder to justify</span>
-<span class="co"># using the t-test.</span></code></pre></div>
+# The point of this homework is to get some practice using the permutation
+# test on an actual data set. We have the apply the test to the mean and median
+# also, notice that the data set is very small making it harder to justify
+# using the t-test.</code></pre>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>For this home work you will be using data from an experiment published in Ecosphere to examine effect sizes and tests (Steel et al. 2012). Eggs from Chinook Salmon were incubated in tanks that were exposed to different temperatures over time. The y variable is the number of degree days until 125 of 150 Chinook salmon fry volitionally emerged. Each treatment had 8 replicates. The treatments that we will look at are:</p>
@@ -390,12 +345,12 @@ $(document).ready(function () {
 <div id="the-data" class="section level2">
 <h2>The data</h2>
 <p>Enter the data using the following code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fivec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1156.2</span>, <span class="fl">1145.8</span>, <span class="fl">1156.2</span>, <span class="fl">1176.6</span>, <span class="fl">1196.8</span>, <span class="fl">1116.3</span>, <span class="fl">1156.2</span>, <span class="fl">1135.6</span>)
-doubledaily &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1184.8</span>, <span class="fl">1193.2</span>, <span class="fl">1176.3</span>, <span class="fl">1201.5</span>, <span class="fl">1159.4</span>, <span class="fl">1167.8</span>, <span class="fl">1150.8</span>, <span class="fl">1150.8</span>)</code></pre></div>
+<pre class="r"><code>fivec &lt;- c(1156.2, 1145.8, 1156.2, 1176.6, 1196.8, 1116.3, 1156.2, 1135.6)
+doubledaily &lt;- c(1184.8, 1193.2, 1176.3, 1201.5, 1159.4, 1167.8, 1150.8, 1150.8)</code></pre>
 <p>Here lets define the effect size as the difference between the fivec and doubledaily treatments.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean5 &lt;-<span class="st"> </span><span class="kw">mean</span>(fivec)
-meanDouble &lt;-<span class="st"> </span><span class="kw">mean</span>(doubledaily)
-diff.mean &lt;-<span class="st"> </span>mean5<span class="op">-</span>meanDouble</code></pre></div>
+<pre class="r"><code>mean5 &lt;- mean(fivec)
+meanDouble &lt;- mean(doubledaily)
+diff.mean &lt;- mean5-meanDouble</code></pre>
 <p>Use a permutation test to test the hypothesis that there is no difference between the mean degree days for the two temperature treatments.</p>
 <ol style="list-style-type: decimal">
 <li><p>What is the p-value for a two sided test?</p></li>
@@ -403,49 +358,49 @@ diff.mean &lt;-<span class="st"> </span>mean5<span class="op">-</span>meanDouble
 <li><p>Do you think there is a difference between these two populations?</p></li>
 </ol>
 <p>Here's some code to get you started. Hint: this set up should look a lot like the lab.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">days &lt;-<span class="st"> </span><span class="kw">c</span>(fivec,doubledaily)
-treatment &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;fivec&quot;</span>,<span class="st">&quot;double&quot;</span>),<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">8</span>))</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### SOLUTION <span class="al">###</span>    
-<span class="co"># A histogram of the null distribution with +/- observed difference.</span>
-permutations &lt;-<span class="st"> </span><span class="dv">100000</span>
-nullVals &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,permutations)
-<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>permutations){
-  treatPerm &lt;-<span class="st"> </span><span class="kw">sample</span>(treatment, <span class="dt">replace=</span><span class="ot">FALSE</span>)
-  nullVals[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(days[treatPerm<span class="op">==</span><span class="st">&quot;fivec&quot;</span>])<span class="op">-</span><span class="kw">mean</span>(days[treatPerm<span class="op">==</span><span class="st">&quot;double&quot;</span>])
+<pre class="r"><code>days &lt;- c(fivec,doubledaily)
+treatment &lt;- rep(c(&quot;fivec&quot;,&quot;double&quot;),c(8,8))</code></pre>
+<pre class="r"><code>### SOLUTION ###    
+# A histogram of the null distribution with +/- observed difference.
+permutations &lt;- 100000
+nullVals &lt;- rep(NA,permutations)
+for(i in 1:permutations){
+  treatPerm &lt;- sample(treatment, replace=FALSE)
+  nullVals[i] &lt;- mean(days[treatPerm==&quot;fivec&quot;])-mean(days[treatPerm==&quot;double&quot;])
 }
-<span class="kw">hist</span>(nullVals)
-obsVal &lt;-<span class="st"> </span><span class="kw">mean</span>(days[treatment<span class="op">==</span><span class="st">&quot;fivec&quot;</span>])<span class="op">-</span><span class="kw">mean</span>(days[treatment<span class="op">==</span><span class="st">&quot;double&quot;</span>])
-absVal &lt;-<span class="st"> </span><span class="kw">abs</span>(obsVal)
-<span class="kw">abline</span>(<span class="dt">v=</span><span class="kw">c</span>(<span class="op">-</span>obsVal,obsVal), <span class="dt">col=</span><span class="st">&quot;black&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+hist(nullVals)
+obsVal &lt;- mean(days[treatment==&quot;fivec&quot;])-mean(days[treatment==&quot;double&quot;])
+absVal &lt;- abs(obsVal)
+abline(v=c(-obsVal,obsVal), col=&quot;black&quot;, lwd=2)</code></pre>
 <p><img src="HW_permutation_test_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### SOLUTION <span class="al">###</span>
-<span class="co"># 1) The p-value is</span>
-<span class="kw">sum</span>(nullVals <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span>absVal <span class="op">|</span><span class="st"> </span>nullVals <span class="op">&gt;=</span><span class="st"> </span>absVal)<span class="op">/</span>permutations</code></pre></div>
+<pre class="r"><code>### SOLUTION ###
+# 1) The p-value is
+sum(nullVals &lt; -absVal | nullVals &gt;= absVal)/permutations</code></pre>
 <pre><code>## [1] 0.12359</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 2) Instead of having 8 replicates in each temperature treatment, you would have infinite replicates.</span>
+<pre class="r"><code># 2) Instead of having 8 replicates in each temperature treatment, you would have infinite replicates.
 
-<span class="co"># 3) It&#39;s hard to say. There&#39;s over a 10% chance that you could get two samples like this if there was no difference.</span></code></pre></div>
+# 3) It&#39;s hard to say. There&#39;s over a 10% chance that you could get two samples like this if there was no difference.</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Now test the hypothesis that there is no difference between the <strong>median</strong> degree days for the two temperature treatments. Summarize your results.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### SOLUTION <span class="al">###</span>    
-<span class="co"># A histogram of the null distribution with +/- observed difference.</span>
-permutations &lt;-<span class="st"> </span><span class="dv">100000</span>
-nullVals &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,permutations)
-<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>permutations){
-  treatPerm &lt;-<span class="st"> </span><span class="kw">sample</span>(treatment, <span class="dt">replace=</span><span class="ot">FALSE</span>)
-  nullVals[i] &lt;-<span class="st"> </span><span class="kw">median</span>(days[treatPerm<span class="op">==</span><span class="st">&quot;fivec&quot;</span>])<span class="op">-</span><span class="kw">median</span>(days[treatPerm<span class="op">==</span><span class="st">&quot;double&quot;</span>])
+<pre class="r"><code>### SOLUTION ###    
+# A histogram of the null distribution with +/- observed difference.
+permutations &lt;- 100000
+nullVals &lt;- rep(NA,permutations)
+for(i in 1:permutations){
+  treatPerm &lt;- sample(treatment, replace=FALSE)
+  nullVals[i] &lt;- median(days[treatPerm==&quot;fivec&quot;])-median(days[treatPerm==&quot;double&quot;])
 }
-<span class="kw">hist</span>(nullVals)
-obsVal &lt;-<span class="st"> </span><span class="kw">median</span>(days[treatment<span class="op">==</span><span class="st">&quot;fivec&quot;</span>])<span class="op">-</span><span class="kw">median</span>(days[treatment<span class="op">==</span><span class="st">&quot;double&quot;</span>])
-absVal &lt;-<span class="st"> </span><span class="kw">abs</span>(obsVal)
-<span class="kw">abline</span>(<span class="dt">v=</span><span class="kw">c</span>(<span class="op">-</span>obsVal,obsVal), <span class="dt">col=</span><span class="st">&quot;black&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+hist(nullVals)
+obsVal &lt;- median(days[treatment==&quot;fivec&quot;])-median(days[treatment==&quot;double&quot;])
+absVal &lt;- abs(obsVal)
+abline(v=c(-obsVal,obsVal), col=&quot;black&quot;, lwd=2)</code></pre>
 <p><img src="HW_permutation_test_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### SOLUTION <span class="al">###</span>    
-<span class="co"># the p-value</span>
-<span class="kw">sum</span>(nullVals <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span>absVal <span class="op">|</span><span class="st"> </span>nullVals <span class="op">&gt;=</span><span class="st"> </span>absVal)<span class="op">/</span>permutations</code></pre></div>
+<pre class="r"><code>### SOLUTION ###    
+# the p-value
+sum(nullVals &lt; -absVal | nullVals &gt;= absVal)/permutations</code></pre>
 <pre><code>## [1] 0.28725</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># So there is even less evidence for a difference between the medians.</span></code></pre></div>
+<pre class="r"><code># So there is even less evidence for a difference between the medians.</code></pre>
 <p>Steel, E.A., Tillotson, A., Larsen, D.A., Fullerton, A.H., Denton, K.P. and Beckman, B.R., 2012. Beyond the mean: the role of variability in predicting ecological effects of stream temperature on salmon. Ecosphere, 3(11), pp.1-11.</p>
 </div>
 </div>

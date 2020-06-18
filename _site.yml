@@ -16,6 +16,9 @@ navbar:
           href: exercises.html
         - text: "Home work"
           href: homework.html
+        - text: "Lectures"
+          href: lectures.html
+          
           
 output:
   html_document:
