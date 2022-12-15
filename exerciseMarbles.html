@@ -13,24 +13,38 @@
 
 <title>Marbles Exercise</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -43,32 +57,8 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
+
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
@@ -79,10 +69,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -99,40 +85,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -160,7 +122,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -172,7 +134,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -183,10 +145,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -198,7 +173,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -265,7 +239,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -285,7 +259,7 @@ $(document).ready(function () {
   <a href="about.html">About</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -313,7 +287,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -323,44 +297,73 @@ $(document).ready(function () {
 
 
 <p><strong>Overview</strong></p>
-<p>In this exercise, students use analogue simulations (hands-on simulations) to gain intuition about how the probability of extreme events is influenced by sample size.</p>
+<p>In this exercise, students use analogue simulations (hands-on
+simulations) to gain intuition about how the probability of extreme
+events is influenced by sample size.</p>
 <p><strong>Big Ideas</strong></p>
 <ul>
-<li>Students observe strong patterns that are caused by random chance.</li>
-<li>Students are introduced to null models as a tool for identifying patterns caused by random chance.</li>
-<li>Students gain deep intuition that extreme events are more likely with smaller sample sizes.</li>
-<li>Students observe a range of examples in which costly errors have been made by not recognizing that extreme events are more likely with smaller sample sizes.</li>
+<li>Students observe strong patterns that are caused by random
+chance.</li>
+<li>Students are introduced to null models as a tool for identifying
+patterns caused by random chance.</li>
+<li>Students gain deep intuition that extreme events are more likely
+with smaller sample sizes.</li>
+<li>Students observe a range of examples in which costly errors have
+been made by not recognizing that extreme events are more likely with
+smaller sample sizes.</li>
 </ul>
 <p><strong>Setup</strong></p>
-<p>Each group will need a bag (or some other container) or 80 marbles or other obects. The objects have to be indentical except that half (40) are one color and the other half (40) another color.</p>
+<p>Each group will need a bag (or some other container) or 80 marbles or
+other obects. The objects have to be indentical except that half (40)
+are one color and the other half (40) another color.</p>
 <p><strong>Activity</strong></p>
 <ol style="list-style-type: decimal">
-<li>Initiate the sampling exercise by passing out the bags of objects. Give the students the following instructions. Note that they may need to be modified for the color and objects in your bags.  Each bag has 40 yellow and 40 blue beads.  Make a quick data sheet to record data for each of the two simulations.  Data are (1) total number of trials and (2) total number of successes = all the same color for one trial. (Remind students to record the number of trials not just the number of successes!)</li>
+<li>Initiate the sampling exercise by passing out the bags of objects.
+Give the students the following instructions. Note that they may need to
+be modified for the color and objects in your bags.  Each bag has 40
+yellow and 40 blue beads.  Make a quick data sheet to record data for
+each of the two simulations.  Data are (1) total number of trials and
+(2) total number of successes = all the same color for one trial.
+(Remind students to record the number of trials not just the number of
+successes!)</li>
 <li>Reach in without looking and pull out 7 beads.</li>
 </ol>
 <ul>
 <li>Record whether or not they are all the same color.</li>
 <li>RETURN the beads to the bag</li>
-<li>Repeat as many times as possible in 3 minutes. Reach in without looking and pull out 4 beads.</li>
+<li>Repeat as many times as possible in 3 minutes. Reach in without
+looking and pull out 4 beads.</li>
 <li>Record whether or not they are all the same color.</li>
 <li>RETURN the beads to the bag</li>
 <li>Repeat as many times as possible in 3 minutes.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>When students are finished, you can use the included spreadsheet to tally the results of trials and successes (extreme events, all beads of the same color) across groups quickly.</li>
-<li>Observe the estimated probability of an extreme event for a sample size of 4 versus 7.</li>
+<li>When students are finished, you can use the included spreadsheet to
+tally the results of trials and successes (extreme events, all beads of
+the same color) across groups quickly.</li>
+<li>Observe the estimated probability of an extreme event for a sample
+size of 4 versus 7.</li>
 <li>Initiate a class discussion.</li>
 </ol>
 <p><strong>Discussion Questions</strong></p>
 <ul>
-<li>Did you expect such a big difference between a sample size of 4 and 7?</li>
-<li>How else could you have calculated or estimated these probabilities?</li>
-<li>What do the bead simulations and the kidney cancer example have in common?</li>
-<li>What other types of data are likely to have similar problems (number of trees on plots of different sizes, climate data measured across different numbers of years, number of animals or fish in habitats of different sizes, anything measured across households and compared across populations with different household sizes).</li>
-<li>In what other ways do humans make up stories to explain patterns? Examples?</li>
+<li>Did you expect such a big difference between a sample size of 4 and
+7?</li>
+<li>How else could you have calculated or estimated these
+probabilities?</li>
+<li>What do the bead simulations and the kidney cancer example have in
+common?</li>
+<li>What other types of data are likely to have similar problems (number
+of trees on plots of different sizes, climate data measured across
+different numbers of years, number of animals or fish in habitats of
+different sizes, anything measured across households and compared across
+populations with different household sizes).</li>
+<li>In what other ways do humans make up stories to explain patterns?
+Examples?</li>
 <li>What is a null model and how is it useful?</li>
 <li>How else can you estimate a null model?</li>
-<li>How would you explain this phenomena to a person who is neither a scientist nor a statistician?</li>
+<li>How would you explain this phenomena to a person who is neither a
+scientist nor a statistician?</li>
 </ul>
 
 <p></p>
@@ -373,7 +376,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -391,7 +394,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

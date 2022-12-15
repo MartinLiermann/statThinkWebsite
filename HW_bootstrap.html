@@ -14,24 +14,38 @@
 
 <title>Bootstrap (homework)</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -44,32 +58,8 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
+
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
@@ -80,10 +70,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -100,40 +86,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -161,7 +123,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -173,7 +135,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -184,10 +146,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -199,7 +174,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -266,7 +240,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -286,7 +260,7 @@ $(document).ready(function () {
   <a href="about.html">About</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -314,7 +288,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -359,11 +333,36 @@ save(incomes,incomesB,incomesSmall,gini,file=&quot;incomes.Rdat&quot;)
 rm(list=c(&quot;incomes&quot;,&quot;incomesB&quot;,&quot;incomesSmall&quot;,&quot;gini&quot;))</code></pre>
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
-<p>In this homework you will be analyze income data using the bootstrap. In many cases we describe populations using the mean. For example, the mean monthly GB of data used in cell phone plans, or the mean length of hospital stays. As Peter showed in class, the central limit theorem allows us to easily construct approximate confidence intervals for the mean, <span class="math inline">\(\bar{x} \pm 1.96se\)</span>. But what do you do when you want to calculate a confidence interval for a metric that is not the mean? Below you will use the bootstrap to calculate confidence intervals for metrics commonly used when describing income distributions.</p>
+<p>In this homework you will be analyze income data using the bootstrap.
+In many cases we describe populations using the mean. For example, the
+mean monthly GB of data used in cell phone plans, or the mean length of
+hospital stays. As Peter showed in class, the central limit theorem
+allows us to easily construct approximate confidence intervals for the
+mean, <span class="math inline">\(\bar{x} \pm 1.96se\)</span>. But what
+do you do when you want to calculate a confidence interval for a metric
+that is not the mean? Below you will use the bootstrap to calculate
+confidence intervals for metrics commonly used when describing income
+distributions.</p>
 <ol style="list-style-type: decimal">
-<li><p>Download incomes.Rdat from the files section of the class site and move it into you R working directory. You can figure out what your R working directory is by typing getwd() and hitting return. Or you can change your working directory using the menu option <code>session/change working directory</code>in Rstudio. Once you have the file, load the income data into the R session using the <code>load</code> function.</p>
+<li><p>Download incomes.Rdat from the files section of the class site
+and move it into you R working directory. You can figure out what your R
+working directory is by typing getwd() and hitting return. Or you can
+change your working directory using the menu option
+<code>session/change working directory</code>in Rstudio. Once you have
+the file, load the income data into the R session using the
+<code>load</code> function.</p>
 <pre class="r"><code>load(&quot;incomes.Rdat&quot;)</code></pre>
-<p>You will now have the variables, <code>incomes</code>, <code>incomesB</code>, and <code>incomesSmall</code>, as well as a function called <code>gini</code> in your R session. The variables <code>incomes</code>, <code>incomesB</code>, and <code>incomesSmall</code> are random samples from all incomes in a country. There are 1000 values in <code>incomes</code> and <code>incomesB</code> while <code>incomesSmall</code> has 100 values. Plot a histogram of the <code>incomes</code> data (not <code>incomesB</code> or <code>incomesSmall</code>) and calculate some basic statistics (like the mean). What do you notice about the data?</p></li>
+<p>You will now have the variables, <code>incomes</code>,
+<code>incomesB</code>, and <code>incomesSmall</code>, as well as a
+function called <code>gini</code> in your R session. The variables
+<code>incomes</code>, <code>incomesB</code>, and
+<code>incomesSmall</code> are random samples from all incomes in a
+country. There are 1000 values in <code>incomes</code> and
+<code>incomesB</code> while <code>incomesSmall</code> has 100 values.
+Plot a histogram of the <code>incomes</code> data (not
+<code>incomesB</code> or <code>incomesSmall</code>) and calculate some
+basic statistics (like the mean). What do you notice about the
+data?</p></li>
 </ol>
 <blockquote>
 <p>Solution</p>
@@ -375,24 +374,49 @@ rm(list=c(&quot;incomes&quot;,&quot;incomesB&quot;,&quot;incomesSmall&quot;,&quo
 <pre><code>## [1] 45403.63</code></pre>
 <pre class="r"><code>sd(incomes)</code></pre>
 <pre><code>## [1] 94039.74</code></pre>
-<p>The income distribution is not symmetric. It is skewed, with a long tail to the right. Also, notice that the median is much smaller than the mean. For a symetric distribution we would expect them to be similar. The median is the value for which 50% of the observations are above and 50% below.</p>
+<p>The income distribution is not symmetric. It is skewed, with a long
+tail to the right. Also, notice that the median is much smaller than the
+mean. For a symetric distribution we would expect them to be similar.
+The median is the value for which 50% of the observations are above and
+50% below.</p>
 </blockquote>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Income inequality is a topic that has recently received a lot of attention. One way to summarize the degree of income inequality is to calculate the proportion of total income that goes to the top 5% of earners (let's refer to this as the top5 metric). There are different ways that you could calculate this metric in R. One way is to a) figure out what income level separates the lower 95% from the top 5% of earners, b) sum the incomes above this level and then c) divide this sum by the sum of all incomes. For step a we can use the <code>quantile</code> function in R.</p>
+<li><p>Income inequality is a topic that has recently received a lot of
+attention. One way to summarize the degree of income inequality is to
+calculate the proportion of total income that goes to the top 5% of
+earners (let’s refer to this as the top5 metric). There are different
+ways that you could calculate this metric in R. One way is to a) figure
+out what income level separates the lower 95% from the top 5% of
+earners, b) sum the incomes above this level and then c) divide this sum
+by the sum of all incomes. For step a we can use the
+<code>quantile</code> function in R.</p>
 <pre class="r"><code>quantile(incomes,prob=0.95)</code></pre>
-<p>To sum the incomes above a certain level (here we use x as a place holder) we can use:</p>
+<p>To sum the incomes above a certain level (here we use x as a place
+holder) we can use:</p>
 <pre class="r"><code>sum(incomes[incomes&gt;x])</code></pre>
-<p>Calculate the proportion of the total income that goes to the top 5% of earners for sample <code>incomes</code>. What would you expect if everyone earned about the same income?</p></li>
+<p>Calculate the proportion of the total income that goes to the top 5%
+of earners for sample <code>incomes</code>. What would you expect if
+everyone earned about the same income?</p></li>
 </ol>
 <blockquote>
 <p>Solution</p>
 <pre class="r"><code>Q95 &lt;- quantile(incomes,prob=0.95)
 sum(incomes[incomes&gt;Q95])/sum(incomes)</code></pre>
 <pre><code>## [1] 0.2521954</code></pre>
-<p>So 25% of the total income goes to the top 5% of earners. If all incomes were about the same I would expect to get 5% instead.</p>
+<p>So 25% of the total income goes to the top 5% of earners. If all
+incomes were about the same I would expect to get 5% instead.</p>
 </blockquote>
 <ol start="3" style="list-style-type: decimal">
-<li>Since <code>incomes</code> is a sample from a population, we would like to describe the uncertainty in this estimate. Use the bootstrap to calculate a 95% confidence interval for the top5 metric (calculated in question 2, i.e. % of total income going to the top 5% of earners) and plot the histogram of the bootstrap distribution (again for the <code>incomes</code> data). Use 10,000 resamples in your bootstrap code. Notice: the <code>size</code> parameter in the <code>sample</code> function should be <code>1000</code> (the size of the sample, incomes). If you don't include the <code>size</code> parameter it defaults to the size of vector you are sampling from (so in this case, 1000).</li>
+<li>Since <code>incomes</code> is a sample from a population, we would
+like to describe the uncertainty in this estimate. Use the bootstrap to
+calculate a 95% confidence interval for the top5 metric (calculated in
+question 2, i.e. % of total income going to the top 5% of earners) and
+plot the histogram of the bootstrap distribution (again for the
+<code>incomes</code> data). Use 10,000 resamples in your bootstrap code.
+Notice: the <code>size</code> parameter in the <code>sample</code>
+function should be <code>1000</code> (the size of the sample, incomes).
+If you don’t include the <code>size</code> parameter it defaults to the
+size of vector you are sampling from (so in this case, 1000).</li>
 </ol>
 <blockquote>
 <p>Solution</p>
@@ -414,7 +438,17 @@ abline(v=bsCI[2],lty=3)</code></pre>
 <p>The 95% confidence interval is (0.219-0.283) .</p>
 </blockquote>
 <ol start="4" style="list-style-type: decimal">
-<li><p>the incomesB variable contains a sample of incomes from another country. Calculate the 95% confidence interval for this population (using the same top5 metric as in problems 2 and 3). Do the confidence intervals overlap? Even if the confidence intervals do overlap, there could still be a statistically significant difference between the two metrics. Calculate the confidence interval for the difference in the metrics for the two populations. This can be accomplished using code very similar to what you have already used. Look at the solution to question 2 in the lab for an example of creating a bootstrap confidence interval for a difference between means (although here we are not using means). It should look something like this:</p>
+<li><p>the incomesB variable contains a sample of incomes from another
+country. Calculate the 95% confidence interval for this population
+(using the same top5 metric as in problems 2 and 3). Do the confidence
+intervals overlap? Even if the confidence intervals do overlap, there
+could still be a statistically significant difference between the two
+metrics. Calculate the confidence interval for the difference in the
+metrics for the two populations. This can be accomplished using code
+very similar to what you have already used. Look at the solution to
+question 2 in the lab for an example of creating a bootstrap confidence
+interval for a difference between means (although here we are not using
+means). It should look something like this:</p>
 <pre class="r"><code>for(i in 1:10000){
   # draw a sample from each population and calculate the two metrics
   bsVals[i] &lt;- valueForCountryA - valueForCountryB
@@ -439,7 +473,8 @@ abline(v=pp,lwd=2)
 abline(v=bsCIB[1],lty=3)
 abline(v=bsCIB[2],lty=3)</code></pre>
 <p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<p>The 95% confidence interval is (0.184-0.227). So, there is a slight overlap with the confidence interval for population A.</p>
+<p>The 95% confidence interval is (0.184-0.227). So, there is a slight
+overlap with the confidence interval for population A.</p>
 <pre class="r"><code>bsVals &lt;- numeric(10000)
 incomeDat &lt;- incomesB
 for(i in 1:10000){
@@ -461,10 +496,16 @@ abline(v=ppA-ppB,lwd=2)
 abline(v=bsCI[1],lty=3)
 abline(v=bsCI[2],lty=3)</code></pre>
 <p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p>The confidence interval for the difference (0.008-0.084) does not include 0 so there is a statistically significant difference (barely!).</p>
+<p>The confidence interval for the difference (0.008-0.084) does not
+include 0 so there is a statistically significant difference
+(barely!).</p>
 </blockquote>
 <ol start="5" style="list-style-type: decimal">
-<li>The <a href="https://en.wikipedia.org/wiki/Gini_coefficient">Gini coefficient</a> is another way of measuring income inequality. Calculate a 90% CI for the difference in the gini coefficient for the two populations. Notice that the statement <code>gini(incomes)</code> will calculate the gini index for the <code>incomes</code> data.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Gini_coefficient">Gini
+coefficient</a> is another way of measuring income inequality. Calculate
+a 90% CI for the difference in the gini coefficient for the two
+populations. Notice that the statement <code>gini(incomes)</code> will
+calculate the gini index for the <code>incomes</code> data.</li>
 </ol>
 <blockquote>
 <p>Solution</p>
@@ -486,12 +527,19 @@ abline(v=bsCI[2],lty=3)</code></pre>
 <div id="extra-for-experts." class="section level4">
 <h4>Extra for experts.</h4>
 <ol start="6" style="list-style-type: decimal">
-<li><p>The <a href="https://en.wikipedia.org/wiki/Lorenz_curve">Lorenz curve</a> shows the metric calculated in problem 2, but for all percentages (i.e. not just 5%). We can plot the curve for the much smaller sample of incomes,<code>incomesSmall</code>, data using the code:</p>
+<li><p>The <a href="https://en.wikipedia.org/wiki/Lorenz_curve">Lorenz
+curve</a> shows the metric calculated in problem 2, but for all
+percentages (i.e. not just 5%). We can plot the curve for the much
+smaller sample of incomes,<code>incomesSmall</code>, data using the
+code:</p>
 <pre class="r"><code>xx &lt;- 100*cumsum(sort(incomesSmall))/sum(incomesSmall)
 plot(100*(1:length(xx))/length(xx),xx,xlab=&quot;Cummulative percent of earners from lowest to highest incomes&quot;,ylab=&quot;Cummulative percent of income earned&quot;,type=&quot;l&quot;,xaxs=&quot;i&quot;,yaxs=&quot;i&quot;)
 abline(0,1,lty=3)</code></pre>
 <p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-12-1.png" width="576" /></p>
-<p>Generate 20 or so bootstrap samples from <code>incomesSmall</code> and draw their Lorenz curves over the top of the plot above. For which x values does the uncertainty in the % income earned tend to be the highest (hint: draw a few vertical lines).</p></li>
+<p>Generate 20 or so bootstrap samples from <code>incomesSmall</code>
+and draw their Lorenz curves over the top of the plot above. For which x
+values does the uncertainty in the % income earned tend to be the
+highest (hint: draw a few vertical lines).</p></li>
 </ol>
 <blockquote>
 <p>Solution</p>
@@ -504,7 +552,8 @@ for(i in 1:25){
  lines(100*(1:length(xx))/length(xx),xx,col=rgb(0,0,0,0.2))
 }</code></pre>
 <p><img src="HW_bootstrap_files/figure-html/unnamed-chunk-13-1.png" width="576" /></p>
-<p>There's more uncertainty for moderate and higher values of Cummulative percent of earners.</p>
+<p>There’s more uncertainty for moderate and higher values of
+Cummulative percent of earners.</p>
 </blockquote>
 </div>
 </div>
@@ -519,7 +568,7 @@ for(i in 1:25){
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -537,7 +586,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
